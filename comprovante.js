@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",function(){const a=new URLSearchParams(window.location.search),b=a.get("code");document.getElementById("code").textContent=b||"C\xF3digo n\xE3o dispon\xEDvel."});

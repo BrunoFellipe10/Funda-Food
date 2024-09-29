@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Funda Food</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+    <header>
+        <div id="container_logo">
+            <img id="Logo" src="img.png" alt="Logo Funda Food">
+        </div>
+        <div id="cabecalho">
+            <ul>
+               <!--  <li><a href="index.html">Inicio</a></li> -->
+                <li><a href="sobre.html">Sobre</a></li>
+               <!--  <li><a href="contato.html">Entrar</a></li> -->
+                <li><a href="index.html">Cantina</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <h1>Checkout</h1>
+        <div id="cartItems">
+            <!-- Itens do carrinho serão listados aqui -->
+        </div>
+        <form id="checkoutForm">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="address">Endereço:</label>
+            <input type="text" id="address" name="address" required>
+            
+            <div id="pixPayment">
+                <label for="pix">Pagamento via PIX:</label>
+                <input type="text" id="pix" name="pix" value="00020126580014br.gov.bcb.pix013665614cc8-5ce2-40ae-b25e-14dac5c822a05204000053039865802BR5918GOSTINHO DO LANCHE6008BRASILIA62070503***6304E6EA" readonly>
+                <button type="button" onclick="copyPix()">Copiar Código PIX</button>
+            </div>
+            
+            <button type="submit">Finalizar Compra</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Funda Food. Todos os direitos reservados.</p>
+    </footer>
+    <script src="checkout.js"></script>
+    <script>
+        function copyPix() {
+            const pixInput = document.getElementById('pix');
+            pixInput.select();
+            pixInput.setSelectionRange(0, 99999); // For mobile devices
+            document.execCommand('copy');
+            alert('Código PIX copiado para a área de transferência!');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprovante - Funda Food</title>
+    <link rel="stylesheet" href="comprovante.css">
+</head>
+<body>
+    <header>
+        <h1>Comprovante de Compra</h1>
+    </header>
+    <main>
+        <p>Obrigado por sua compra!</p>
+        <p>Mostre este comprovante para retirar o seu produto.</p>
+        <p>Seu código de retirada é: <span id="code"></span></p>
+        <button id="copyButton">Copiar Código</button>
+        <p>Bom lanche! A equipe Funda Food agradece.</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 Funda Food. Todos os direitos reservados.</p>
+    </footer>
+    
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get('code');
+        document.getElementById('code').textContent = code || 'Código não disponível.';
+
+        document.getElementById('copyButton').addEventListener('click', function() {
+            navigator.clipboard.writeText(code).then(() => {
+                alert('Código copiado para a área de transferência!');
+            });
+        });
+    </script>
+</body>
+</html>
